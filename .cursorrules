@@ -1,0 +1,40 @@
+# LocatorJS Extension - Cursor IDE Configuration
+
+## Project Overview
+This is a Chrome/Firefox browser extension for LocatorJS that allows developers to click on UI components in the browser to open their code in their IDE.
+
+## Tech Stack
+- TypeScript
+- SolidJS (for extension UI)
+- Webpack (for bundling)
+- Chrome Extension Manifest V3
+- Monorepo structure with pnpm workspaces
+
+## Code Style
+- Use TypeScript strict mode
+- Follow existing code patterns in the codebase
+- Use SolidJS for UI components (not React)
+- Extension uses Manifest V3 for Chrome
+
+## Key Directories
+- `apps/extension/` - Main extension code
+- `packages/runtime/` - Runtime library
+- `packages/shared/` - Shared utilities
+- `packages/babel-jsx/` - Babel plugin for JSX source mapping
+
+## Build Commands
+- `pnpm build` - Build all packages
+- `cd apps/extension && pnpm build` - Build extension only
+- `cd apps/extension && pnpm dev` - Development mode with hot reload
+
+## Extension Structure
+- `src/manifest.v3.json` - Chrome extension manifest
+- `src/pages/` - Extension pages (popup, options, etc.)
+- `src/browser.ts` - Browser API abstraction
+- Build output: `build/production_chrome/`
+
+## Notes
+- Extension requires development mode in target applications to work properly
+- Uses babel-plugin-transform-react-jsx-source for source mapping
+- Supports both Chrome (Manifest V3) and Firefox (Manifest V2)
+
