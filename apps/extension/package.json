@@ -18,6 +18,7 @@
     "pack:firefox": "web-ext build --source-dir ./build/production_firefox --artifacts-dir ./build/artifacts_firefox",
     "pack:chrome": "cd ./build/production_chrome && zip -r ../../build/chrome.zip .",
     "generate-icons": "node scripts/generate-icons.js",
+    "create-logo": "node scripts/create-logo-gif.js",
     "prettier": "prettier --write '**/*.{js,jsx,ts,tsx,json,css,scss,md}'"
   },
   "dependencies": {

@@ -1,6 +1,10 @@
 # Install LocateX Extension in Chrome
 
-This guide will help you build and install the LocateX extension in Google Chrome.
+![LocateX Logo](../apps/extension/src/assets/img/icon-128.png)
+
+This guide will help you build and install the **LocateX** extension in Google Chrome.
+
+**LocateX** - Click on any UI component in your browser to instantly open its source code in your IDE.
 
 ## Prerequisites
 
@@ -44,9 +48,10 @@ The built extension will be in: `apps/extension/build/production_chrome/`
 
 ## Step 4: Verify Installation
 
-1. Look for the "LocateX" extension icon in your Chrome toolbar
+1. Look for the **LocateX** extension icon (purple gradient with X mark) in your Chrome toolbar
 2. Click the extension icon to open the popup
 3. The extension should be ready to use
+4. Visit a development site and hold **Alt** (or **Option** on Mac) while hovering over components
 
 ## Usage
 
