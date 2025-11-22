@@ -13,7 +13,7 @@ type Props = {
 export function SharePage(props: Props) {
   let textareaRef: HTMLTextAreaElement | undefined;
   const text =
-    'Check out LocatorJS!. \nYou can click on any React component in a browser to open its code in Editor. \nhttps://www.locatorjs.com';
+    'Check out LocateX!. \nYou can click on any React component in a browser to open its code in Editor. \nhttps://www.locatorjs.com';
 
   const [copied, setCopied] = createSignal(false);
 

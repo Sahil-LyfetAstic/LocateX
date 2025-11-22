@@ -1,10 +1,10 @@
 #!/bin/bash
-# Build script for Component Locator Chrome Extension
+# Build script for LocateX Chrome Extension
 # This script builds all dependencies and then the extension itself
 
 set -e  # Exit on error
 
-echo "🚀 Building Component Locator Extension..."
+echo "🚀 Building LocateX Extension..."
 echo ""
 
 # Colors for output

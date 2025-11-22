@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
-  "name": "Component Locator",
-  "description": "Component Locator",
+  "name": "LocateX",
+  "description": "LocateX - Click to locate components in your code",
   "icons": {
     "128": "icon-128.png"
   },
@@ -10,7 +10,7 @@
     "browser_style": true,
     "default_popup": "popup.html",
     "default_icon": "icon-32.png",
-    "default_title": "Component Locator"
+    "default_title": "LocateX"
   },
   "content_scripts": [
     {

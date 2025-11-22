@@ -40,7 +40,7 @@ export function EditControls(props: Props) {
         <p class=" mb-4">
           {clicks() ? (
             <>
-              You have already used Locator <b>{clicks()}</b> times.
+              You have already used LocateX <b>{clicks()}</b> times.
             </>
           ) : (
             'No clicks yet.'

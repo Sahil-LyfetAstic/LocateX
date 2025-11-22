@@ -100,7 +100,7 @@ const Popup = () => {
             {message() === 'disabled' ? (
               <div>
                 <SectionHeadline>Disabled</SectionHeadline>
-                <div>You have disabled Locator on this page.</div>
+                <div>You have disabled LocateX on this page.</div>
                 <div class="flex justify-end">
                   <Button
                     onClick={() => {
@@ -148,7 +148,7 @@ const Popup = () => {
 
                   <Box flex="1">
                     <AlertTitle>
-                      LocatorJS could not run on this page
+                      LocateX could not run on this page
                     </AlertTitle>
                     <AlertDescription display="block">
                       <For each={message().split('\n')}>

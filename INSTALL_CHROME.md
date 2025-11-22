@@ -1,6 +1,6 @@
-# Install Component Locator Extension in Chrome
+# Install LocateX Extension in Chrome
 
-This guide will help you build and install the Component Locator extension in Google Chrome.
+This guide will help you build and install the LocateX extension in Google Chrome.
 
 ## Prerequisites
 
@@ -44,7 +44,7 @@ The built extension will be in: `apps/extension/build/production_chrome/`
 
 ## Step 4: Verify Installation
 
-1. Look for the "Component Locator" extension icon in your Chrome toolbar
+1. Look for the "LocateX" extension icon in your Chrome toolbar
 2. Click the extension icon to open the popup
 3. The extension should be ready to use
 
