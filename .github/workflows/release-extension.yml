@@ -1,0 +1,86 @@
+name: Build and Release Extension
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version tag (e.g., v1.3.1)'
+        required: true
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'pnpm'
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8.7.5
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build workspace dependencies
+        run: pnpm build --filter '@locator/babel-jsx' --filter '@locator/react-devtools-hook' --filter '@locator/shared' --filter '@locator/runtime'
+
+      - name: Build extension
+        run: cd apps/extension && pnpm build
+
+      - name: Package Chrome extension
+        run: cd apps/extension && pnpm pack:chrome
+
+      - name: Get version
+        id: get_version
+        run: |
+          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+            echo "version=${{ github.event.inputs.version }}" >> $GITHUB_OUTPUT
+          else
+            echo "version=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            apps/extension/build/chrome.zip
+          tag_name: ${{ steps.get_version.outputs.version }}
+          name: Release ${{ steps.get_version.outputs.version }}
+          body: |
+            ## Chrome Extension Release ${{ steps.get_version.outputs.version }}
+            
+            ### Installation Instructions
+            
+            1. Download `chrome.zip` from the assets below
+            2. Extract the zip file
+            3. Open Chrome and go to `chrome://extensions/`
+            4. Enable "Developer mode" (toggle in top right)
+            5. Click "Load unpacked"
+            6. Select the extracted folder
+            
+            ### Or install from GitHub:
+            
+            You can also clone this repository and load the extension directly:
+            
+            ```bash
+            git clone https://github.com/YOUR_USERNAME/LocateX.git
+            cd LocateX
+            pnpm install
+            pnpm build:extension
+            ```
+            
+            Then load `apps/extension/build/production_chrome` as an unpacked extension.
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+

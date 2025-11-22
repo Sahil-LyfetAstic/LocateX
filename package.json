@@ -1,14 +1,15 @@
 {
   "name": "turborepo-basic-shared",
   "version": "0.0.0",
-  "private": true,
   "workspaces": [
     "apps/*",
     "packages/*"
   ],
   "scripts": {
     "build": "turbo run build",
-    "build:extension": "bash scripts/build-extension.sh",
+    "build:extension": "pnpm install && bash scripts/build-extension.sh",
+    "build:extension:full": "pnpm install && bash scripts/build-extension.sh",
+    "pack:chrome": "pnpm build:extension && cd apps/extension && pnpm pack:chrome",
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
     "test": "turbo run test",

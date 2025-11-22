@@ -20,18 +20,43 @@ LocateX is a powerful browser extension that helps developers quickly navigate f
 
 ## Installation
 
-### Chrome / Brave / Edge / Opera
+### Option 1: Install from GitHub Releases (Easiest)
 
-1. Open Chrome and navigate to `chrome://extensions/`
-2. Enable **Developer mode** (toggle in top-right)
-3. Click **"Load unpacked"**
-4. Select the `build/production_chrome` directory after building
+1. Go to the [Releases page](https://github.com/YOUR_USERNAME/LocateX/releases)
+2. Download the latest `chrome.zip` file
+3. Extract the zip file
+4. Open Chrome and navigate to `chrome://extensions/`
+5. Enable **Developer mode** (toggle in top-right)
+6. Click **"Load unpacked"**
+7. Select the extracted folder
 
-### Firefox
+### Option 2: Build from Source
 
-1. Open Firefox and navigate to `about:debugging#/runtime/this-firefox`
-2. Click **"Load Temporary Add-on"**
-3. Select the `manifest.json` from `build/production_firefox` directory
+#### Chrome / Brave / Edge / Opera
+
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/YOUR_USERNAME/LocateX.git
+   cd LocateX
+   ```
+2. Install dependencies and build:
+   ```bash
+   pnpm install
+   pnpm build:extension
+   ```
+3. Open Chrome and navigate to `chrome://extensions/`
+4. Enable **Developer mode** (toggle in top-right)
+5. Click **"Load unpacked"**
+6. Select the `apps/extension/build/production_chrome` directory
+
+#### Firefox
+
+1. Build the extension (see Chrome instructions above)
+2. Open Firefox and navigate to `about:debugging#/runtime/this-firefox`
+3. Click **"Load Temporary Add-on"**
+4. Select the `manifest.json` from `apps/extension/build/production_firefox` directory
+
+For detailed installation instructions, see [INSTALL_FROM_GITHUB.md](./INSTALL_FROM_GITHUB.md)
 
 ## Quick Start
 

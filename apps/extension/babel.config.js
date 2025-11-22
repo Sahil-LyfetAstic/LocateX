@@ -1,0 +1,12 @@
+module.exports = {
+  presets: ["@babel/preset-typescript", "solid"],
+  plugins: [
+    [
+      "@locator/babel-jsx/dist",
+      {
+        env: "development"
+      }
+    ]
+  ]
+};
+
